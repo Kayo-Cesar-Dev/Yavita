@@ -3,42 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/pages/login/login.css" />
+
+    <!-- CSS DA PÁGINA -->
+    <link rel="stylesheet" href="/assets/css/pages/login/login.css" />
+
+    <!-- FAVICON -->
     <link
       rel="shortcut icon"
-      href="assets/images/logos/Icon.png"
+      href="/assets/images/logos/Icon.png"
       type="image/x-icon"
     />
+
+    <!-- BOOTSTRAP ICONS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <title>Yavita - Login</title>
+
+    <title>Login | Yavita</title>
   </head>
+
   <body>
+    <!-- ================= HEADER ================= -->
     <header>
       <nav class="menu-desktop">
-        <img src="assets/images/logos/YavitaLogo.png" alt="Logotipo Yavita" />
+        <img
+          src="/assets/images/logos/YavitaLogo.png"
+          alt="Logotipo Yavita"
+        />
+
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="sobre.html">Sobre Nós</a></li>
-          <li><a href="#planos">Plano de Saude</a></li>
-          <li><a href="#">Simule seu plano</a></li>
-          <li><a href="#depoimentos">Depoimento</a></li>
-          <li><a href="#">Contato</a></li>
-          <div class="icon-container">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/sobre.html">Sobre Nós</a></li>
+          <li><a href="/index.html#planos">Plano de Saúde</a></li>
+          <li><a href="/simule-plano.html">Simule seu plano</a></li>
+          <li><a href="/index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="/contato.html">Contato</a></li>
+
+          <li class="icon-container">
             <i
               class="bi bi-person-circle custom-icon"
               onclick="toggleLoginLink()"
             ></i>
+
             <div id="loginLink" class="login-link">
-              <a href="login.html">Sou cliente</a>
-              <a href="login.html#cadastroForm">Cadastrar</a>
+              <a href="/login.html">Sou cliente</a>
+              <a href="/login.html#cadastroForm">Cadastrar</a>
             </div>
-          </div>
+          </li>
         </ul>
       </nav>
 
+      <!-- MENU MOBILE -->
       <button class="hamburger" id="hamburger" aria-label="Abrir menu">
         <i class="bi bi-list"></i>
       </button>
@@ -47,22 +63,27 @@
         <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
           <i class="bi bi-x"></i>
         </button>
+
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Sobre Nós</a></li>
-          <li><a href="#">Plano de Saude</a></li>
-          <li><a href="#">Simule seu plano</a></li>
-          <li><a href="#">Depoimento</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/sobre.html">Sobre Nós</a></li>
+          <li><a href="/index.html#planos">Plano de Saúde</a></li>
+          <li><a href="/simule-plano.html">Simule seu plano</a></li>
+          <li><a href="/index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="/contato.html">Contato</a></li>
         </ul>
       </nav>
     </header>
+
+    <!-- ================= MAIN ================= -->
     <main>
-      <div class="form-container">
+      <section class="form-container">
         <div class="form-wrapper" id="formWrapper">
+          <!-- LOGIN -->
           <form action="login.php" method="POST" id="loginForm" class="form">
             <h2>Login</h2>
-            <label for="email">Email:</label>
+
+            <label for="email">Email</label>
             <input
               type="email"
               id="email"
@@ -71,7 +92,7 @@
               required
             />
 
-            <label for="password">Senha:</label>
+            <label for="password">Senha</label>
             <input
               type="password"
               id="password"
@@ -84,6 +105,7 @@
             <button type="button" id="cadastre">Não sou usuário</button>
           </form>
 
+          <!-- CADASTRO -->
           <form
             action="cadastro.php"
             method="POST"
@@ -91,7 +113,8 @@
             class="form-cadastro"
           >
             <h2>Cadastro</h2>
-            <label for="name">Nome:</label>
+
+            <label for="name">Nome</label>
             <input
               type="text"
               id="name"
@@ -100,7 +123,7 @@
               required
             />
 
-            <label for="emailCadastro">Email:</label>
+            <label for="emailCadastro">Email</label>
             <input
               type="email"
               id="emailCadastro"
@@ -109,7 +132,7 @@
               required
             />
 
-            <label for="passwordCadastro">Senha:</label>
+            <label for="passwordCadastro">Senha</label>
             <input
               type="password"
               id="passwordCadastro"
@@ -118,12 +141,19 @@
               required
             />
 
-            <label for="date">Confirmar Senha:</label>
-            <input type="date" id="Data" name="date" required />
+            <label for="confirmPassword">Confirmar senha</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirme sua senha"
+              required
+            />
 
-            <span class="genero-toggle" onclick="mostrarOpcoes()"
-              >Selecionar Gênero</span
-            >
+            <span class="genero-toggle" onclick="mostrarOpcoes()">
+              Selecionar Gênero
+            </span>
+
             <div class="opcoes-genero" id="opcoesGenero">
               <input
                 type="radio"
@@ -141,7 +171,12 @@
               />
               <label for="feminino">Feminino</label><br />
 
-              <input type="radio" name="genero" id="outros" value="Outros" />
+              <input
+                type="radio"
+                name="genero"
+                id="outros"
+                value="Outros"
+              />
               <label for="outros">Outros</label><br />
             </div>
 
@@ -149,9 +184,11 @@
             <button type="button" id="voltar">Voltar</button>
           </form>
         </div>
-      </div>
+      </section>
     </main>
-    <script src="assets/js/login/scriptLogin.js"></script>
-    <script src="assets/js/menu/scrptMenu.js"></script>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="/assets/js/login/scriptLogin.js"></script>
+    <script src="/assets/js/menu/scrptMenu.js"></script>
   </body>
 </html>
